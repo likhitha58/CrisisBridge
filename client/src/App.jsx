@@ -90,6 +90,15 @@ const router = createBrowserRouter(
             </ProtectedRoute>
           )
         },
+        // Admin only route
+        {
+          path: "admin",
+          element: (
+            <ProtectedRoute roles={['Admin']}>
+              <AdminDashboard />
+            </ProtectedRoute>
+          )
+        },
         // Standard 404 handler
         {
           path: "*",
