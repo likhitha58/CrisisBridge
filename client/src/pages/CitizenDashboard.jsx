@@ -100,7 +100,7 @@ const CitizenDashboard = () => {
                 }`}>
                   {req.status}
                 </span>
-                {req.assignedTo && (
+                {req.assignedTo?.name && (
                   <div className="flex items-center mt-3 gap-2">
                     <div className="h-6 w-6 rounded-full bg-gray-100 flex items-center justify-center text-[10px] font-black uppercase">
                       {req.assignedTo.name.charAt(0)}

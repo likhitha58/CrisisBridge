@@ -39,7 +39,10 @@ const getRequests = async (req, res) => {
     if (req.query.resourceType) filters.resourceType = req.query.resourceType;
     if (req.query.urgency) filters.urgency = req.query.urgency;
 
-    const requests = await Request.find(filters).populate('userId', 'name email').sort({ createdAt: -1 });
+    const requests = await Request.find(filters)
+      .populate('userId', 'name email')
+      .populate('assignedTo', 'name email')
+      .sort({ createdAt: -1 });
     res.json(requests);
   } catch (err) {
     console.error(err);
